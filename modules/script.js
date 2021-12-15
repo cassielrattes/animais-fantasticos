@@ -1,14 +1,15 @@
+import Funcionamento from "./funcionamento.js";
+import DropdownMenu from "./dropdown-menu.js";
+import ScrollAnima from "./scroll-anima.js";
 import ScrollSuave from "./scroll-suave.js";
+import MenuMobile from "./menu-mobile.js";
 import Accordion from "./accordion.js";
+import Tooltip from "./tooltip.js";
 import TabNav from "./tabnav.js";
 import Modal from "./modal.js";
-import Tooltip from "./tooltip.js";
-import initDropdownMenu from "./dropdown-menu.js";
-import initMenuMobile from "./menu-mobile.js";
-import initFuncionamento from "./funcionamento.js";
-import initFetchAnimais from "./fetch-animais.js";
-import initFetchBitcoin from "./fetch-bitcoin.js";
-import initAnimacaoScroll from "./scroll-animacao.js";
+
+import fetchAnimais from "./fetch-animais.js";
+import fetchBitcoin from "./fetch-bitcoin.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -32,9 +33,17 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
-initDropdownMenu();
-initMenuMobile();
-initFuncionamento();
-initFetchAnimais();
-initFetchBitcoin();
-initAnimacaoScroll();
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
+
+const dropdownMenu = new DropdownMenu("[data-dropdown]");
+dropdownMenu.init();
+
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
+menuMobile.init();
+
+const funcionamento = new Funcionamento("[data-semana]", "aberto");
+funcionamento.init();
+
+fetchAnimais("../../animaisapi.json", ".numeros-grid");
+fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
