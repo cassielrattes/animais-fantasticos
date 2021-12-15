@@ -1,6 +1,6 @@
 export default class Accordion {
     constructor(list) {
-        this.accordionList = document.querySelectorAll(list); // [data-anime="accordion"] dt
+        this.accordionList = document.querySelectorAll(list);
         this.activeClass = "ativo";
     }
 
