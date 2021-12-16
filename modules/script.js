@@ -5,6 +5,7 @@ import ScrollSuave from "./scroll-suave.js";
 import MenuMobile from "./menu-mobile.js";
 import Accordion from "./accordion.js";
 import Tooltip from "./tooltip.js";
+import SlideNav from "./slide.js";
 import TabNav from "./tabnav.js";
 import Modal from "./modal.js";
 
@@ -44,6 +45,10 @@ menuMobile.init();
 
 const funcionamento = new Funcionamento("[data-semana]", "aberto");
 funcionamento.init();
+
+const slide = new SlideNav(".slide", ".slide-wrapper");
+slide.init();
+slide.addControl(".custom-controls");
 
 fetchAnimais("./animaisapi.json", ".numeros-grid");
 fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
